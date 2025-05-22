@@ -1,0 +1,14 @@
+name: Deploy
+on:
+  push: [main]
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Get code
+      run: actions/checkout@v4
+    - name: Install node@20.x
+      run: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+    - name: Install dependencies
+      run: npm i
