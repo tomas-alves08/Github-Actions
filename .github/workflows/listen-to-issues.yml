@@ -1,0 +1,11 @@
+name: Listen to issues
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  handle-new-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print issue
+        run: echo "${{ github }}"
