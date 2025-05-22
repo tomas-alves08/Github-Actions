@@ -22,6 +22,17 @@ jobs:
     needs: eslint
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Install node@20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install dependencies
+        run: npm i
+
       - name: Run tests
         run: npm run test
 
@@ -29,6 +40,17 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Install node@20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install dependencies
+        run: npm i
+
       - name: Build project
         run: npm run build
 
@@ -36,5 +58,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Install node@20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install dependencies
+        run: npm i
+
       - name: Deploy project
         run: echo "Deploy project"
